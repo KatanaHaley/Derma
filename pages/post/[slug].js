@@ -2,15 +2,24 @@ import { client } from '../../lib/sanity/client';
 import React, { useState } from 'react';
 import { urlFor } from '../../lib/sanity/client';
 import Image from 'next/image'
+import {PortableText} from '@portabletext/react'
 
 const Post = ({post}) => {
   const { title, mainImage, body } = post;
 
-  console.log(post)
+  // console.log(Object.values(body))
   return (
     <article>
-   <img src={urlFor(post?.mainImage)} className="blog-banner-image" />
-   <h2>{post.title}</h2>
+   <h2 className="font-bold ml-20 mt-20 text-3xl" >{post.title}</h2>
+   <p className="ml-20 mt-2">{new Date(post?._createdAt).toDateString()}</p>
+      <div className="flex justify-center mb-10">
+
+   <img src={urlFor(post?.mainImage)} className="blog-img" />
+      </div>
+      <div className="ml-20 mr-20 mb-20">
+   {post.body && <PortableText value={post.body} />}
+      </div>
+
     </article>
   )
 }

@@ -1,23 +1,24 @@
 import React from 'react'
 import Navbar from './Navbar'
-// import Footer from './Footer'
+import Head from 'next/head'
 
 const Layout = ({ children }) => {
-    return (
-      <div className="layout">
+  return (
+    <div>
         <Head>
-          <title>Wilderness Warriors</title>
+            <title>Derma.</title>
         </Head>
         <header>
-          <Navbar />
+        <Navbar />
         </header>
-        <main className="main-container">
-        {children}
+        <main>
+            {children}
         </main>
-        <footer>
-          {/* <Footer />  */}
-        </footer>
-      </div>
-    )
-  }
+        {/* <footer>
+            <Footer />
+        </footer> */}
+    </div>
+  )
+}
+
 export default Layout
